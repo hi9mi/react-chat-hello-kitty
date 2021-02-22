@@ -1,0 +1,295 @@
+@import '../variable';
+.dialogs {
+	border-right: 1px solid $pink;
+	height: 100%;
+	&__search {
+		width: 293px;
+		position: relative;
+		padding: 0.8em 1em;
+		&-input {
+			color: $black;
+			width: 100%;
+			background: $lightPink;
+			padding: 0.8em 3em;
+			padding-right: 1em;
+			transition: all 0.2s linear;
+			&:hover,
+			&:focus {
+				box-shadow: 0px 0px 0px 1px $pink inset;
+			}
+		}
+		svg {
+			position: absolute;
+			left: 10%;
+			top: 50%;
+			transform: translate3d(-10%, -50%, 0);
+		}
+	}
+	&__items {
+		height: calc(100% - 59.69px);
+		overflow: auto;
+		bottom: 0;
+
+		&__item {
+			$self: &;
+			height: 68px;
+			width: 293px;
+			display: grid;
+			grid-template-columns: 18% 82%;
+			padding: 0.8em 1em;
+			cursor: pointer;
+			&:hover {
+				background: $lightPink;
+			}
+			&.active {
+				background: $pink;
+				#{$self}-content {
+					margin-left: 10px;
+					&__head {
+						display: flex;
+						justify-content: space-between;
+						&__username {
+							h1 {
+								font-size: 1rem;
+								font-weight: 500;
+								color: $white;
+							}
+						}
+						&__date {
+							span {
+								font-size: 0.9rem;
+								color: $white;
+								font-weight: 400;
+							}
+						}
+					}
+					&__foot {
+						margin-top: 12px;
+						display: flex;
+						&-me {
+							margin-right: 5px;
+							h1 {
+								font-size: 1rem;
+								color: $white;
+								font-weight: 500;
+							}
+						}
+						&-message {
+							width: 150px;
+
+							p {
+								line-height: 20px;
+								text-overflow: ellipsis;
+								overflow: hidden;
+								height: 1.2em;
+								white-space: nowrap;
+								font-size: 1rem;
+								color: $white;
+								font-weight: 400;
+							}
+						}
+						&-counter {
+							margin-left: auto;
+							height: 20px;
+							width: 20px;
+							border-radius: 50%;
+							background: $white;
+							vertical-align: middle;
+							line-height: 20px;
+							p {
+								font-size: 0.8rem;
+								color: $black;
+								text-align: center;
+								vertical-align: middle;
+							}
+						}
+					}
+				}
+			}
+			&-ava {
+				position: relative;
+				width: 46px;
+				height: 46px;
+				img {
+					border-radius: 50%;
+					width: 46px;
+					height: 46px;
+				}
+				span {
+					position: absolute;
+					content: '';
+					display: block;
+					width: 12px;
+					height: 12px;
+					border-radius: 50%;
+					border: $white solid 1px;
+					background: $green;
+					bottom: 5%;
+					left: 70%;
+				}
+			}
+			&-content {
+				margin-left: 10px;
+				&__head {
+					display: flex;
+					justify-content: space-between;
+					&__username {
+						h1 {
+							font-size: 1rem;
+							font-weight: 500;
+							color: $black;
+						}
+					}
+					&__date {
+						span {
+							font-size: 0.9rem;
+							color: $black;
+							font-weight: 400;
+						}
+					}
+				}
+				&__foot {
+					margin-top: 12px;
+					display: flex;
+					&-me {
+						margin-right: 5px;
+						h1 {
+							font-size: 1rem;
+							color: $pink;
+							font-weight: 500;
+						}
+					}
+					&-message {
+						width: 150px;
+
+						p {
+							line-height: 20px;
+							text-overflow: ellipsis;
+							overflow: hidden;
+							height: 1.2em;
+							white-space: nowrap;
+							font-size: 1rem;
+							color: $black;
+							font-weight: 400;
+						}
+					}
+					&-counter {
+						margin-left: auto;
+						height: 20px;
+						width: 20px;
+						border-radius: 50%;
+						background: $pink;
+						vertical-align: middle;
+						line-height: 20px;
+						p {
+							font-size: 0.8rem;
+							color: $white;
+							text-align: center;
+							vertical-align: middle;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.dialogue-window {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	&__messages {
+		width: 100%;
+		overflow: auto;
+		height: calc(100% - 138px);
+	}
+	&__input {
+		height: 138px;
+		display: flex;
+
+		&-wrapper {
+			height: 100%;
+			display: flex;
+
+			&__my-avatar {
+				margin-top: 20px;
+				margin-right: 20px;
+				img {
+					height: 46px;
+					width: 46px;
+					border-radius: 50%;
+				}
+			}
+			&__user-avatar {
+				margin-top: 20px;
+				margin-left: 20px;
+				img {
+					height: 46px;
+					width: 46px;
+					border-radius: 50%;
+				}
+			}
+			&__input {
+				padding-top: 20px;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+
+				&-header {
+					position: relative;
+					input {
+						color: $black;
+						background: $white;
+						width: 358px;
+						padding: 0 1.5em 2.2em 0;
+						border-bottom: 2px solid $gray;
+						transition: all 0.1s linear;
+						&:hover,
+						&:focus {
+							border-bottom: 2px solid $pink;
+						}
+					}
+					svg {
+						cursor: pointer;
+						position: absolute;
+						top: 0;
+						right: 0;
+					}
+				}
+				&-bottom {
+					margin-top: 10px;
+					display: flex;
+					justify-content: space-between;
+					&__svg-items {
+						svg {
+							cursor: pointer;
+							margin-left: 10px;
+							&:first-child {
+								margin-left: 0;
+							}
+						}
+					}
+					&__btn {
+						font-size: 0.9rem;
+						margin-top: 0;
+						width: 31px;
+						background: transparent;
+						color: $pink;
+						font-weight: 500;
+						padding: 0;
+						text-align: center;
+						transition: all 0.2s linear;
+						&:hover,
+						&:focus {
+							color: lighten($color: $pink, $amount: 5%);
+							background: transparent;
+						}
+					}
+				}
+			}
+		}
+	}
+}

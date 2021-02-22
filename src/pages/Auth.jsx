@@ -1,21 +1,21 @@
-import React from 'react'
-import { Route, Switch } from 'react-router'
-import { Login, Registration, RegistrationSuccessful } from '../components'
+import { LoginForm, RegistrationForm, RegistrationSuccessful } from 'components';
+import React from 'react';
+import { Route, Switch } from 'react-router';
 
 const Auth = () => {
-  return (
-    <Switch>
-      <Route path='/registration' exact>
-        <Registration />
-      </Route>
-      <Route path='/login' exact>
-        <Login />
-      </Route>
-      <Route path='/registration-successful' exact>
-        <RegistrationSuccessful />
-      </Route>
-    </Switch>
-  )
-}
+	return (
+		<Switch>
+			<Route path={['/', '/login']} exact>
+				<LoginForm />
+			</Route>
+			<Route path='/registration' exact>
+				<RegistrationForm />
+			</Route>
+			<Route path='/registration-successful' exact>
+				<RegistrationSuccessful />
+			</Route>
+		</Switch>
+	);
+};
 
-export default Auth
+export default Auth;

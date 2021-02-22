@@ -44,6 +44,7 @@ body {
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
+
 input,
 button,
 textarea {
@@ -82,4 +83,45 @@ h5,
 h6 {
 	font-size: inherit;
 	font-weight: 400;
+}
+
+.page__wrap {
+	background-color: $lightPink;
+	height: 100vh;
+}
+
+.chat {
+	width: 1010px;
+	height: 98%;
+	margin: 0 auto;
+	background: $white;
+	box-shadow: 0px 0px 6px 1px $gray;
+	&__content {
+		height: calc(100% - 70px);
+		display: flex;
+	}
+}
+
+.dialog__bar {
+	height: 100%;
+}
+
+.messages__bar {
+	height: 100%;
+}
+
+::-webkit-scrollbar {
+	width: 0.5em;
+}
+::-webkit-scrollbar-track {
+	background: $lightGray;
+	box-shadow: inset 0 0 5px $lightGray;
+}
+::-webkit-scrollbar-thumb {
+	background: $pink;
+	border-radius: 10px;	
+}
+::-webkit-scrollbar-thumb:hover {
+	background: $darkPink;
+	border-radius: 10px;
 }

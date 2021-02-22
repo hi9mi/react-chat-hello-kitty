@@ -1,3 +1,14 @@
-export { default as Registration } from './Registration';
-export { default as Login } from './Login';
+export { default as AuthBlock } from './AuthBlock';
+export { default as Avatar } from './Avatar';
+export { default as Button } from './Button';
+export { default as DialogBar } from './DialogBar';
+export { default as DialogItem } from './DialogItem';
+export { default as DialogueInput } from './DialogueInput';
+export { default as Header } from './Header';
+export { default as LoginForm } from './LoginForm/LoginForm';
+export { default as Message } from './Message';
+export { default as Messages } from './Messages';
+export { default as RegistrationForm } from './RegistrationForm/RegistrationForm';
 export { default as RegistrationSuccessful } from './RegistrationSuccessful';
+export { default as Search } from './Search';
+export { default as Time } from './Time';

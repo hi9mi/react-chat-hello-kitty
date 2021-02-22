@@ -1,0 +1,45 @@
+@import '../variable';
+
+.message {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1.5em;
+	&__avatar {
+		img {
+			width: 48px;
+			height: 48px;
+			border-radius: 50%;
+		}
+	}
+	&__buble {
+		margin-left: 0.9em;
+		&-username {
+			h1 {
+				font-weight: 500;
+				font-size: 1rem;
+				color: $black;
+			}
+		}
+		&-text {
+			margin-top: 0.9em;
+			width: 363px;
+			p {
+				font-weight: 400;
+				font-size: 1rem;
+				line-height: 20px;
+				color: $black;
+			}
+		}
+	}
+	&__date {
+		span {
+			font-weight: 400;
+			font-size: 0.9rem;
+			line-height: 12px;
+			color: $black;
+		}
+		svg {
+			margin-left: 5px;
+		}
+	}
+}

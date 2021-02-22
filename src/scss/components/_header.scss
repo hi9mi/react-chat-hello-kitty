@@ -1,0 +1,64 @@
+@import '../variable';
+
+.header {
+	background-color: $pink;
+	display: flex;
+	height: 70px;
+	&__nav {
+		flex-basis: 29.1%;
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		transition: all linear 0.1s;
+		&-menu {
+			margin-left: 20px;
+		}
+		&-logo {
+			margin-left: 30px;
+			display: flex;
+			h1 {
+				font-size: 1.5rem;
+				color: $white;
+				font-weight: 500;
+				line-height: 36px;
+			}
+			img {
+				width: 34px;
+				height: 36.49px;
+			}
+		}
+		&.active {
+			background-color: $darkPink;
+		}
+		&:hover {
+			background-color: $darkPink;
+		}
+	}
+	&__dialog {
+		flex-basis: 70.9%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		&-user {
+			margin-left: 20px;
+			display: flex;
+			h1 {
+				color: $white;
+				font-weight: 500;
+				font-size: 1.1rem;
+				line-height: 19px;
+			}
+			span {
+				margin-left: 10px;
+				color: $white;
+				font-weight: 400;
+				font-size: 0.8rem;
+				line-height: 22px;
+			}
+		}
+		&-search {
+			cursor: pointer;
+			margin-right: 20px;
+		}
+	}
+}

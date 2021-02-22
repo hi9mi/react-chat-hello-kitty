@@ -1,9 +1,15 @@
+import { Auth, Home } from 'pages';
 import React from 'react';
-import Auth from './pages/Auth';
+import { Route } from 'react-router';
 import './scss/app.scss';
 
 function App() {
-	return <Auth />;
+	return (
+		<>
+			<Route path={['/', '/login']} component={Auth} />
+			<Route path='/im' component={Home} />
+		</>
+	);
 }
 
 export default App;
