@@ -7,18 +7,16 @@ const validateForm = ({ isAuth, values, errors }) => {
 				errors.email = isAuth ? 'Incorrect email or password' : 'Incorrect email';
 			}
 		},
-		username: (value) => {
-			if (!value) {
-				errors.username = 'This field is required';
-			} else if (!/^[A-Za-z0-9_]+$/i.test(value)) {
-				errors.email = 'Incorrect username';
-			}
-		},
 		password: (value) => {
 			if (!value) {
 				errors.password = 'This field is required';
-			} else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(value)) {
+			} else if (!isAuth && !/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(value)) {
 				errors.password = isAuth ? 'Incorrect email or password' : 'Too easy password';
+			}
+		},
+		username: (value) => {
+			if (!isAuth && !value) {
+				errors.username = 'Please enter your username';
 			}
 		},
 	};

@@ -119,9 +119,15 @@ h6 {
 }
 ::-webkit-scrollbar-thumb {
 	background: $pink;
-	border-radius: 10px;	
+	border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
 	background: $darkPink;
 	border-radius: 10px;
+}
+
+button:disabled,
+button[disabled] {
+	background-color: $darkPink !important;
+	color: $white !important;
 }

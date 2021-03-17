@@ -1,5 +1,4 @@
-import { DialogBar, DialogueInput, Header, Messages } from 'components/index';
-import items from 'fakeDB';
+import { DialogBarContainer, DialogueInputContainer, Header, MessagesContainer } from 'components/index';
 import React from 'react';
 
 const Home = () => {
@@ -9,11 +8,11 @@ const Home = () => {
 				<Header />
 				<div className='chat__content'>
 					<div className='dialog__bar'>
-						<DialogBar counter={3} userId={'1'} items={items} />
+						<DialogBarContainer counter={3} userId={'1'} />
 					</div>
 					<div className='dialogue-window'>
-						<Messages />
-						<DialogueInput items={items} />
+						<MessagesContainer />
+						<DialogueInputContainer />
 					</div>
 				</div>
 			</div>

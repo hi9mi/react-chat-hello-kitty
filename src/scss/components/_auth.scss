@@ -27,7 +27,6 @@
 		}
 	}
 	&__bg {
-
 		width: 440px;
 		height: 440px;
 		margin-top: 20px;
@@ -121,6 +120,12 @@
 						color: $red;
 						transition: all 0.2s linear;
 					}
+					&-auth-error {
+						position: absolute;
+						bottom: -100%;
+						color: $red;
+						transition: all 0.2s linear;
+					}
 				}
 				&-username {
 					background: url(../../assets/img/user.svg) no-repeat 0.5em 0.7em;
@@ -163,6 +168,7 @@
 		padding: 0.6em 0;
 		text-align: center;
 		transition: all 0.2s linear;
+		cursor: pointer;
 		&-successful {
 			font-size: 1.2rem;
 			margin-top: 60px;

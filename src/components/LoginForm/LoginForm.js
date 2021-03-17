@@ -1,5 +1,8 @@
-import Login from 'components/LoginForm/';
+import Login from 'components/LoginForm/index';
 import { withFormik } from 'formik';
+import { connect } from 'react-redux';
+import Actions, { fetchUserLogin } from 'redux/actions/user';
+import store from 'redux/store';
 import validateForm from 'utils/validateForm';
 
 const LoginForm = withFormik({
@@ -10,12 +13,24 @@ const LoginForm = withFormik({
 
 		return errors;
 	},
-	handleSubmit: (values, { setSubmiting }) => {
-		setTimeout(() => {
-			alert(JSON.stringify(values, null, 2));
-			setSubmiting(false);
-		}, 1000);
-	},
-	displayName: 'RegistrationForm',
+
+  handleSubmit: (values, { setSubmitting, props }) => {
+    store
+      .dispatch(Actions.fetchUserLogin(values))
+      .then(({ status }) => {
+        if (status === "success") {
+          setTimeout(() => {
+            props.history.push("/im");
+          }, 100);
+        }
+        setSubmitting(false);
+      })
+      .catch(() => {
+        setSubmitting(false);
+      });
+  },
+	displayName: 'LoginForm',
 })(Login);
+
+
 export default LoginForm;

@@ -1,11 +1,10 @@
-import classNames from 'classnames';
 import { AuthBlock, Button } from 'components';
+import { InputField } from 'components/index';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Registration = (props) => {
-	const { values, touched, errors, dirty, isSubmitting, handleChange, handleBlur, handleSubmit, handleReset } = props;
-	console.log(errors, touched);
+	const { values, touched, errors, isSubmitting, handleChange, handleBlur, handleSubmit } = props;
 
 	return (
 		<AuthBlock>
@@ -13,53 +12,39 @@ const Registration = (props) => {
 				<p>Registration</p>
 			</div>
 			<form onSubmit={handleSubmit} className='auth__form'>
-				<div className='auth__form-field'>
-					<input
-						id='username'
-						placeholder='Username...'
-						type='text'
-						value={values.username}
-						onChange={handleChange}
-						onBlur={handleBlur}
-						className={classNames('auth__form-field-input auth__form-field-input-username', {
-							'auth__form-field-input-username-error': errors.username && touched.username,
-						})}
-					/>
-					{errors.username && touched.username && (
-						<div className='auth__form-field-input-username-feedback'>{errors.username}</div>
-					)}
-				</div>
-				<div className='auth__form-field'>
-					<input
-						id='email'
-						placeholder='Email...'
-						type='text'
-						value={values.email}
-						onChange={handleChange}
-						onBlur={handleBlur}
-						className={classNames('auth__form-field-input auth__form-field-input-email', {
-							'auth__form-field-input-email-error': errors.email && touched.email,
-						})}
-					/>
-					{errors.email && touched.email && <div className='auth__form-field-input-email-feedback'>{errors.email}</div>}
-				</div>
-				<div className='auth__form-field'>
-					<input
-						id='password'
-						placeholder='Password...'
-						type='text'
-						value={values.password}
-						onChange={handleChange}
-						onBlur={handleBlur}
-						className={classNames('auth__form-field-input auth__form-field-input-password', {
-							'auth__form-field-input-password-error': errors.password && touched.password,
-						})}
-					/>
-					{errors.password && touched.password && (
-						<div className='auth__form-field-input-password-feedback'>{errors.password}</div>
-					)}
-				</div>
-				<Button disabled={isSubmitting}>Sign up</Button>
+				<InputField
+					name={'username'}
+					placeholder={'Username...'}
+					type={'text'}
+					values={values}
+					handleBlur={handleBlur}
+					handleChange={handleChange}
+					errors={errors}
+					touched={touched}
+				/>
+				<InputField
+					name={'email'}
+					placeholder={'Email...'}
+					type={'text'}
+					values={values}
+					handleBlur={handleBlur}
+					handleChange={handleChange}
+					errors={errors}
+					touched={touched}
+				/>
+				<InputField
+					name={'password'}
+					placeholder={'Password...'}
+					type={'password'}
+					values={values}
+					handleBlur={handleBlur}
+					handleChange={handleChange}
+					errors={errors}
+					touched={touched}
+				/>
+				<Button disabled={isSubmitting} onClick={handleSubmit} type={'submit'}>
+					Sign up
+				</Button>
 				<p>
 					or if you have account <Link to='/login'>Login</Link>
 				</p>

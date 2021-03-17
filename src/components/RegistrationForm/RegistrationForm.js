@@ -1,5 +1,7 @@
 import Registration from 'components/RegistrationForm/index';
 import { withFormik } from 'formik';
+import Actions, { fetchUserRegistration } from 'redux/actions/user';
+import store from 'redux/store';
 import validateForm from 'utils/validateForm';
 
 const RegistrationForm = withFormik({
@@ -10,12 +12,22 @@ const RegistrationForm = withFormik({
 
 		return errors;
 	},
-	handleSubmit: (values, { setSubmiting }) => {
-		setTimeout(() => {
-			alert(JSON.stringify(values, null, 2));
-			setSubmiting(false);
-		}, 1000);
-	},
+	handleSubmit: (values, { setSubmitting, props }) => {
+    store
+      .dispatch(Actions.fetchUserRegister(values))
+      .then(({ status }) => {
+        if (status === "success") {
+          setTimeout(() => {
+            props.history.push("/im");
+          }, 50);
+        }
+        setSubmitting(false);
+      })
+      .catch(() => {
+        setSubmitting(false);
+      });
+  },
 	displayName: 'RegistrationForm',
 })(Registration);
+
 export default RegistrationForm;
